@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Скрипт за създаване на файлова структура
+*.sh
+create.*

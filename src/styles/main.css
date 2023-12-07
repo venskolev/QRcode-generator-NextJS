@@ -1,0 +1,70 @@
+:root {
+  --bg-color: #0c0c0c;
+  --primary-color: #000000;
+  --secondary-color: #fff;
+  --text-color: #fff;
+  --text-color-2: #fff;
+  --text-color-3: rgb(204, 0, 0);
+  --text-color-4: #222222;
+  --overlay-color: rgb(12 12 12 / 63%);
+}
+
+[data-theme="light"] {
+  --bg-color: #eeeeee;
+  --primary-color: #ffffff;
+  --secondary-color: #242424;
+  --text-color: #000;
+  --text-color-2: #000;
+  --text-color-3: rgb(204, 0, 0);
+  --text-color-4: #f8f8f8;
+  --overlay-color: rgb(255 255 255 / 70%);
+}
+
+.no-theme {
+  --bg-color: initial;
+  --primary-color: initial;
+  --secondary-color: initial;
+  --text-color: initial;
+  /* Други променливи, които искате да изключите */
+}
+
+.styleToggle {
+  background-color: var(--bg-color);
+  color: var(--text-color-2)
+}
+body {
+  background-color: #eeeeee;
+  color: #222222;
+  /* background-color: var(--bg-color); */
+  /* color: var(--text-color); */
+  /* margin: 0 auto; */
+  margin-top: 120px;
+  /* padding-left: 5rem;
+  padding-right: 5rem; */
+  /* min-height: 100vh;
+  display: flex;
+  flex-direction: column; */
+}
+
+.MuiAppBar-root {
+  /* background-color: rgba(242, 244, 247, 0.959); */
+  background: var( --secondary-color);
+  color: var(--text-color-4);
+  /* color: black; */
+  position: 'sticky';
+  top: 0;
+}
+
+.nav_ac {
+  /* padding: 5px 15px; */
+  /* margin: 0; */
+  /* border: unset; */
+  background: var(--secondary-color);
+  /* font-size: 1.25rem; */
+  /* font-family: Marcellus; */
+  color: var(--text-color-4);
+  /* line-height: 2; */
+  /* height: 50px; */
+  /* font-weight: bold; */
+  /* z-index: 1000; */
+}

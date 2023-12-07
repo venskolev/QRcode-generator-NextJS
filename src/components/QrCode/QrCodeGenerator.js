@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 
 import { TextField, Button, Typography, Container, Box } from "@mui/material";
 import QRCodeGenerator from "qrcode-generator";
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans } from 'react-i18next';
 
 
 
@@ -22,7 +22,6 @@ export default function QrCodeGenerator() {
     const context = canvas.getContext("2d");
     const moduleCount = qr.getModuleCount();
     const cellSize = canvas.width / moduleCount;
-    const { t } = useTranslation();
 
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = "black";
@@ -43,7 +42,7 @@ export default function QrCodeGenerator() {
 
   return (
     <Container
-    className="no-theme"
+    // className="no-theme"
       sx={{ minHeight: "calc(100vh - 180px)" }}>
         <Typography className="styleToggle" variant="h4" align="center" gutterBottom>
         <Trans i18nKey="QR Code Generator"></Trans>

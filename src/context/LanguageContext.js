@@ -31,7 +31,7 @@ export const LanguageProvider = ({ children }) => {
     // Четене на предпочитания за език от бисквитка
     const preferredLanguage = Cookies.get(LANG_COOKIE_KEY) || 'en';
     changeLanguage(preferredLanguage);
-  }, []);  
+  }, [changeLanguage]);  
 
   return (
      loading ? <Loader /> :

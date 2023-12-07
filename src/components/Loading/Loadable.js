@@ -1,15 +1,19 @@
-import { Suspense } from 'react';
+import React, { Suspense } from 'react';
 
 // project import
 import Loader from './Loader';
 
-const Loadable = (Component) => (props) => (
-  <Suspense fallback={<Loader />}>
-    <Component {...props} />
-  </Suspense>
-);
+const Loadable = (Component) => {
+  const WrappedComponent = (props) => (
+    <Suspense fallback={<Loader />}>
+      <Component {...props} />
+    </Suspense>
+  );
 
-Loadable.displayName = 'Loadable';
+  WrappedComponent.displayName = `Loadable(${Component.displayName || Component.name || 'Component'})`;
+
+  return WrappedComponent;
+};
 
 export default Loadable;
 

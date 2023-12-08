@@ -14,8 +14,8 @@ const LoaderWrapper = styled('div')(() => ({
   },
   marginTop: "65px"
 }));
-
-export default function Loader() {
+// eslint-disable-next-line react/display-name
+const Loader = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -34,3 +34,5 @@ export default function Loader() {
     </LoaderWrapper>
   );
 }
+
+export default Loader;

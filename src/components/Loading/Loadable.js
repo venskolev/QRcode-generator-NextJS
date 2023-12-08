@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 
 // project import
-import Loader from './Loader';
-
+import { Loader } from './Loader';
+// eslint-disable-next-line react/display-name
 const Loadable = (Component) => {
   const WrappedComponent = (props) => (
     <Suspense fallback={<Loader />}>

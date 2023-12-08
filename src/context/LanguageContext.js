@@ -42,9 +42,8 @@ export const LanguageProvider = ({ children }) => {
   
     // changeLanguage(languageToUse);
 
-  }, [language]);  
-  
-
+  }, [language, changeLanguage]);  
+ 
   return (
      loading ? <Loader /> :
     <LanguageContext.Provider value={{ language, changeLanguage }}>

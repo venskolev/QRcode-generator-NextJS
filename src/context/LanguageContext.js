@@ -1,6 +1,5 @@
 import React, { createContext, useState, useContext, useEffect, Suspense } from 'react';
 import { useRouter } from 'next/router';
-import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 import Cookies from 'js-cookie';
 import Loader from '../components/Loading/Loader';
@@ -29,9 +28,17 @@ export const LanguageProvider = ({ children }) => {
 
   useEffect(() => {
     // Четене на предпочитания за език от бисквитка
-    const preferredLanguage = Cookies.get(LANG_COOKIE_KEY) || 'en';
-    changeLanguage(preferredLanguage);
+    const preferredLanguage = Cookies.get(LANG_COOKIE_KEY);
+  
+    // Ако предпочитаният език от бисквитка не е наличен, вземете езика от браузъра
+    const browserLanguage = window.navigator.language.split('-')[0];
+    const defaultLanguage = browserLanguage || 'en';
+  
+    const languageToUse = preferredLanguage || defaultLanguage;
+  
+    changeLanguage(languageToUse);
   }, []);  
+  
 
   return (
      loading ? <Loader /> :

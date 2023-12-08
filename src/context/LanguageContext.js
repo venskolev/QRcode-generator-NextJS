@@ -36,9 +36,13 @@ export const LanguageProvider = ({ children }) => {
     const defaultLanguage = browserLanguage || 'en';
   
     const languageToUse = preferredLanguage || defaultLanguage;
+    if (languageToUse !== language) {
+      changeLanguage(languageToUse);
+    }
   
-    changeLanguage(languageToUse);
-  }, []);  
+    // changeLanguage(languageToUse);
+
+  }, [language]);  
   
 
   return (

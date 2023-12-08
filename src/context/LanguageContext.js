@@ -26,6 +26,7 @@ export const LanguageProvider = ({ children }) => {
     router.push(`/${newLanguage}`);
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     // Четене на предпочитания за език от бисквитка
     const preferredLanguage = Cookies.get(LANG_COOKIE_KEY);

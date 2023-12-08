@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect, Suspense } from 'react';
+import React, { createContext, useState, useContext, useEffect, Suspense, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import i18n from 'i18next';
 import Cookies from 'js-cookie';
@@ -12,7 +12,7 @@ export const LanguageProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  const changeLanguage = (newLanguage) => {
+  const changeLanguage = useCallback((newLanguage) => {
     // Записване на предпочитанията за език в бисквитка
     Cookies.set(LANG_COOKIE_KEY, newLanguage, { expires: 365 });
     // console.log('Cookie set:', Cookies.get(LANG_COOKIE_KEY));
@@ -24,7 +24,7 @@ export const LanguageProvider = ({ children }) => {
     });
     // Променете пътя на текущия език
     router.push(`/${newLanguage}`);
-  };
+  }, [setLanguage, setLoading, router]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {

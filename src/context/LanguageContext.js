@@ -8,7 +8,7 @@ const LanguageContext = createContext();
 const LANG_COOKIE_KEY = 'preferredLanguage';
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState(' ');
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -30,19 +30,20 @@ export const LanguageProvider = ({ children }) => {
   useEffect(() => {
     // Четене на предпочитания за език от бисквитка
     const preferredLanguage = Cookies.get(LANG_COOKIE_KEY);
+    console.log(preferredLanguage);
   
     // Ако предпочитаният език от бисквитка не е наличен, вземете езика от браузъра
     const browserLanguage = window.navigator.language.split('-')[0];
-    const defaultLanguage = browserLanguage || 'en';
+    const defaultLanguage = browserLanguage;
   
     const languageToUse = preferredLanguage || defaultLanguage;
     if (languageToUse !== language) {
       changeLanguage(languageToUse);
     }
-  
     // changeLanguage(languageToUse);
-
+    
   }, [language, changeLanguage]);  
+  console.log(language);
  
   return (
      loading ? <Loader /> :

@@ -30,11 +30,11 @@ export const LanguageProvider = ({ children }) => {
   useEffect(() => {
     // Четене на предпочитания за език от бисквитка
     const preferredLanguage = Cookies.get(LANG_COOKIE_KEY);
-    console.log(preferredLanguage);
+    // console.log(preferredLanguage);
   
     // Ако предпочитаният език от бисквитка не е наличен, вземете езика от браузъра
     const browserLanguage = window.navigator.language.split('-')[0];
-    const defaultLanguage = browserLanguage;
+    const defaultLanguage = browserLanguage || 'en';
   
     const languageToUse = preferredLanguage || defaultLanguage;
     if (languageToUse !== language) {
@@ -43,7 +43,7 @@ export const LanguageProvider = ({ children }) => {
     // changeLanguage(languageToUse);
     
   }, [language, changeLanguage]);  
-  console.log(language);
+  // console.log(language);
  
   return (
      loading ? <Loader /> :

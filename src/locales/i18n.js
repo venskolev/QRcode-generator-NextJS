@@ -31,10 +31,10 @@ const getUserLanguage = () => {
     // Преобразуване на всички символи към малки букви и вземане на основния код на езика
     const mainLanguageCode = languageCode.toLowerCase().split('-')[0];
 
-    console.log(languageCode);
+    // console.log(languageCode);
 
     if (mainLanguageCode) {
-      console.log(mainLanguageCode);
+      // console.log(mainLanguageCode);
       return mainLanguageCode;
     }
   }

@@ -1,29 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { Trans } from 'react-i18next';
 import './styles.css';
-import { Trans, useTranslation } from 'react-i18next';
 
+const Footer = ({ fixed }) => {
 
-const Footer = () => {
   var currentDate = new Date();
   var currentYear = currentDate.getFullYear();
-  const router = useRouter();
-  const { t } = useTranslation();
 
   const handleLinkToLibdev = () => {
     window.open('https://libdev.net', '_blank');
   };
 
   return (
-    <>
-    <footer>
-      
-        <p>&copy; {currentYear} <Trans i18nKey="QR Code Generator"></Trans>.&nbsp;
-          <Trans i18nKey="All rights reserved"></Trans>.&nbsp;
-          <strong onClick={handleLinkToLibdev}>libdev.net</strong>
-     </p>
-    </footer > 
-    </>
+    <footer id="footer" className={!fixed ? 'fixedFooter' : 'relativeFooter'}>
+      <p>
+        &copy; {currentYear} <Trans i18nKey="QR Code Generator"></Trans>.&nbsp;
+        <Trans i18nKey="All rights reserved"></Trans>.&nbsp;
+        <strong onClick={handleLinkToLibdev}>libdev.net</strong>
+      </p>
+    </footer>
   );
 };
 

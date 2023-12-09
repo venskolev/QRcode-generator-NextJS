@@ -1,10 +1,16 @@
 /* Вашият стил за футера в CSS файл, например styles.css */
 footer {
-  position: absolute;
-  /* bottom: 0; */
   width: calc(100vw - 2rem);
   background-color: var(--secondary-color);
   color: var(--text-color-4);
   padding: .1rem;
   text-align: center;
+}
+.fixedFooter {
+  position: fixed;
+  bottom: 0;
+}
+
+.relativeFooter {
+  position: relative;
 }

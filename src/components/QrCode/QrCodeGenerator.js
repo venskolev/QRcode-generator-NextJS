@@ -45,7 +45,7 @@ export default function QrCodeGenerator() {
     // className="no-theme"
       sx={{ minHeight: "calc(100vh - 180px)" }}>
         <Typography className="styleToggle" variant="h4" align="center" gutterBottom>
-        <Trans i18nKey="QR Code Generator"></Trans>
+        <Trans i18nKey="url"></Trans>
         </Typography>
       <TextField
           label="Enter URL"

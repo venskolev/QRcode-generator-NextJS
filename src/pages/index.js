@@ -1,51 +1,59 @@
-import React, { useEffect, useState } from 'react';
-import { Trans } from 'react-i18next';
+import React, { useState } from "react";
+import { Trans } from "react-i18next";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
 
-import Menu from '../components/Menu/Menu.js';
-import Footer from '../components/Footer/Footer.js';
-import QrCodeGenerator from '../components/QrCode/QrCodeGenerator.js';
+import QrCodeGenerator from "../components/QrCode/QrCodeGenerator.js";
+import MainCard from "@/components/Card/MainCard.js";
 
 const Home = ({ lang }) => {
-  const [footerFixed, setFooterFixed] = useState(false);
+  const [value, setValue] = useState("1");
 
-  useEffect(() => {
-    const adjustFooter = () => {
-      const body = document.body;
-      const content = document.getElementById('content');
-
-      if (!content) {
-        return;
-      }
-
-      const bodyHeight = body.clientHeight;
-      const viewportHeight = window.visualViewport.height;
-      const contentHeight = content.scrollHeight;
-
-      if (contentHeight > viewportHeight) {
-        setFooterFixed(true);
-      } else {
-        setFooterFixed(false);
-      }
-    };
-
-    adjustFooter();
-
-  }, []);
-
-  // console.log(footerFixed);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <>
-      <Menu />
       <main id="content">
         <div className="styleToggle">
           <div>
             <Trans i18nKey="welcome" components={[<b key={0} />]}></Trans>
           </div>
         </div>
-        <QrCodeGenerator />
+        <Box>
+          <TabContext value={value}>
+            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+              <TabList
+                onChange={handleChange}
+                aria-label="lab API tabs example"
+              >
+                <Tab label={<Trans i18nKey="url" />} value="1" />
+                <Tab label={<Trans i18nKey="text" />} value="2" />
+                <Tab label={<Trans i18nKey="vcard" />} value="3" />
+              </TabList>
+            </Box>
+            <TabPanel value="1">
+              <MainCard boxShadow title={<Trans i18nKey="QR Code Generator" />}>
+                <QrCodeGenerator />
+              </MainCard>
+            </TabPanel>
+            <TabPanel value="2">
+              <MainCard boxShadow title={<Trans i18nKey="QR Code Generator" />}>
+                <QrCodeGenerator />
+              </MainCard>
+            </TabPanel>
+            <TabPanel value="3">
+              <MainCard boxShadow title={<Trans i18nKey="QR Code Generator" />}>
+                <QrCodeGenerator />
+              </MainCard>
+            </TabPanel>
+          </TabContext>
+        </Box>
       </main>
-      <Footer fixed={footerFixed} />
     </>
   );
 };

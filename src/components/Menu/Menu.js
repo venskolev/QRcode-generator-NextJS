@@ -19,7 +19,8 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
 import LanguageButton from '../Buttons/LanguageButton';
-import ToggleModeButton from '../Buttons/ToggleModeButton'
+import ToggleModeButton from '../Buttons/ToggleModeButton';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -62,7 +63,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({lang}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   
@@ -70,15 +71,19 @@ export default function PrimarySearchAppBar() {
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const router = useRouter();
 
+  // const { lang } = router.query;
+  const currentLang = lang || 'en';
+
   const handleMenuClickHome = () => {
     router.push('/').then(() => {
       window.location.reload();
     });
   };
+
   const handleMenuClickLogin = () => {
     router.push('/login');
-  };
-
+  };  
+ 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };

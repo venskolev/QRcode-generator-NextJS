@@ -3,5 +3,8 @@
   "cookeititle" : "This website use cookies",
   "cookietext": "By clicking (Accept all cookies), you agree to the storage of cookies on your device to improve website navigation, analyze website usage and support our marketing efforts.",
   "acceptall": "Accept all cookies",
-  "decline": "Decline"
+  "decline": "Decline",
+  "url": "URL generator",
+  "text": "Text generator",
+  "vcard": "Virtual card generator"
 }

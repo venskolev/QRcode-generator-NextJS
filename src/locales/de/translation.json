@@ -4,5 +4,8 @@
   "cookeititle" : "Diese Website verwendet Cookies",
   "cookietext": "Wenn Sie auf „Alle Cookies akzeptieren“ klicken, stimmen Sie der Speicherung von Cookies auf Ihrem Gerät zu, um die Websitenavigation zu verbessern, die Websitenutzung zu analysieren und unsere Marketingbemühungen zu unterstützen.",
   "acceptall": "Akzeptieren",
-  "decline": "Ablehnen"
+  "decline": "Ablehnen",
+  "url": "URL Generieren",
+  "text": "Text Generieren",
+  "vcard": "Virtual Card Generieren"
 }
